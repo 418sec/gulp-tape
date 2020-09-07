@@ -35,7 +35,7 @@ function gulpTape (options) {
       args.unshift(nycBinaryFilePath)
     }
 
-    const tapeProcess = childProcess.exec(args.join(' '), function (error) {
+    const tapeProcess = childProcess.execFile(args[0], args.slice(1), function (error) {
       if (error) {
         callback(new PluginError(pluginName, error))
       }
